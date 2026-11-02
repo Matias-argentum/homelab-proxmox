@@ -72,3 +72,29 @@ Con `tcpdump` en el servidor mostró los
 paquetes del celular llegando cada pocos segundos, sin respuesta.
 WireGuard descarta lo que no puede validar, habia puesto mal la clave publica del celu. 
 **Moraleja:** las claves conviene transferirlas por copiar y pegar.
+
+### Día 4: omitido
+
+Iba a brir el puerto apra porbar desde fuera, pero decidí no abrir ningún puerto para no tocar el router. La VPN se probó
+solo desde dentro de la LAN y ,por lo anterior, el acceso desde datos móviles no se
+validó.
+
+### Día 5: Documentación del túnel
+
+**Cómo funciona**
+
+- `gateway` tiene una interfaz virtual, `wg0`, que es la entrada del
+  túnel. Cada dispositivo autorizado (el celu, la notebook) tiene su
+  propio par de claves.
+- La clave privada nunca sale del dispositivo. Entre dispositivos
+  solo se intercambian claves públicas.
+- Un peer está autorizado solo si su clave pública figura en
+  `wg0.conf`. WireGuard no responde a paquetes que no puede validar
+  con una clave conocida.
+- `AllowedIPs` cumple dos funciones. En el servidor, define de qué IP
+  puede ser cada peer (filtro de origen). En el cliente, define qué
+  tráfico va por el túnel.
+- El tráfico de los clientes hacia la red interna atraviesa
+  `gateway`: entra por `wg0`, sale por la interfaz interna, y el
+  firewall lo permite con reglas `ufw route` explícitas porque la
+  política de forwarding es `DROP`.

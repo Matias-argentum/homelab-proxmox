@@ -40,9 +40,6 @@ correspondiente.
 Proxmox VE, Debian 13, Docker y Docker Compose, Nginx, ufw, fail2ban,
 Spring Boot, MySQL.
 
-Lo que sigue -->  WireGuard, Loki, Grafana y Cloudflare
-Tunnel.
-
 ## Índice por semana
 
 | Semana | Tema | Documento |
@@ -52,6 +49,8 @@ Tunnel.
 | 3 | Hardening: SSH por claves, ufw y fail2ban | [semana-03.md](semana-03.md) |
 | 4 | Docker y despliegue de la app de finanzas | [semana-04.md](semana-04.md) |
 | 5 | Nginx como proxy inverso | [semana-05.md](semana-05.md) |
+| 6 | Me dediqué a ver lo que ya había ehhco y a crear este repo! | Y un pooc de descanso hehe |
+| 7 | VPN interna con wireguard | [semana-07.md](semana-07.md) |
 
 
 ## Seguridad
